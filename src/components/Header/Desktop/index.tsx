@@ -9,15 +9,19 @@ import Logo from "../../../assets/logo.png";
 import Cart from "../../../assets/carrinho.png";
 import Image from "next/image";
 import SearchInput from "../../SearchInput";
-import { InputContainer, NavSearch } from "./styles";
-
-// import { Container } from './styles';
+import {
+  InputContainer,
+  NavbarHightLight,
+  NavbarItem,
+  NavSearch,
+  SBadge,
+} from "./styles";
 
 const Desktop: React.FC = () => {
   const [showSearch, setShowSerach] = useState(false);
 
   return (
-    <Navbar variant="sticky">
+    <Navbar variant="sticky" className="Desktop">
       <Navbar.Brand>
         <Image width={90} height={30} src={Logo} alt="Logo" />
       </Navbar.Brand>
@@ -28,7 +32,7 @@ const Desktop: React.FC = () => {
         variant="underline"
       >
         <Navbar.Link>Clube</Navbar.Link>
-        <Navbar.Link isActive>Loja</Navbar.Link>
+        <NavbarHightLight>Loja</NavbarHightLight>
         <Navbar.Link>Produtores</Navbar.Link>
         <Navbar.Link>Ofertas</Navbar.Link>
         <Navbar.Link>Eventos</Navbar.Link>
@@ -47,15 +51,15 @@ const Desktop: React.FC = () => {
             />
           </>
         </NavSearch>
-        <Navbar.Item>
+        <NavbarItem>
           <CgProfile size={40} />
-        </Navbar.Item>
-        <Navbar.Item>
+        </NavbarItem>
+        <NavbarItem>
           <>
             <Image width={40} height={40} src={Cart} alt="Carrinho" />
-            <Badge color="success">0</Badge>
+            <SBadge color="success">0</SBadge>
           </>
-        </Navbar.Item>
+        </NavbarItem>
       </Navbar.Content>
     </Navbar>
   );
