@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { CssBaseline } from "@nextui-org/react";
 
 class MyDocument extends Document {
   render() {
@@ -13,6 +14,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
             rel="stylesheet"
           />
+          {CssBaseline.flush()}
         </Head>
         <body>
           <Main />
