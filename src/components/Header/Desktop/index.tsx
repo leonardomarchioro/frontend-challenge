@@ -8,6 +8,8 @@ import { CgProfile } from "react-icons/cg";
 import Logo from "../../../assets/logo.png";
 import Cart from "../../../assets/carrinho.png";
 import Image from "next/image";
+import SearchInput from "../../SearchInput";
+import { InputContainer, NavSearch } from "./styles";
 
 // import { Container } from './styles';
 
@@ -17,7 +19,7 @@ const Desktop: React.FC = () => {
   return (
     <Navbar variant="sticky">
       <Navbar.Brand>
-        <Image width={90} height={35} src={Logo} alt="Logo" />
+        <Image width={90} height={30} src={Logo} alt="Logo" />
       </Navbar.Brand>
       <Navbar.Content
         enableCursorHighlight
@@ -33,15 +35,18 @@ const Desktop: React.FC = () => {
       </Navbar.Content>
 
       <Navbar.Content>
-        <Navbar.Item>
+        <NavSearch>
           <>
-            {showSearch && <Input contentRight={<IoSearchCircleOutline />} />}
+            <InputContainer>
+              <SearchInput showSearch={showSearch} />
+            </InputContainer>
+
             <IoSearchCircleOutline
               size={50}
               onClick={() => setShowSerach(!showSearch)}
             />
           </>
-        </Navbar.Item>
+        </NavSearch>
         <Navbar.Item>
           <CgProfile size={40} />
         </Navbar.Item>
