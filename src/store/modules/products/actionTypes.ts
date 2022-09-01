@@ -1,0 +1,2 @@
+export const ALL_PRODUCTS = "ALL_PRODUCTS";
+export const FILTER_PRODUCTS = "FILTER_PRODUCTS";
