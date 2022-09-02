@@ -42,7 +42,13 @@ const Desktop: React.FC = () => {
         <NavSearch>
           <>
             <InputContainer>
-              <SearchInput showSearch={showSearch} />
+              <SearchInput
+                showSearch={showSearch}
+                animateActions={{
+                  open: { width: 250, opacity: 1 },
+                  exit: { width: 0, opacity: 0 },
+                }}
+              />
             </InputContainer>
 
             <IoSearchCircleOutline

@@ -7,8 +7,6 @@ import Image from "next/image";
 
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
-
-import SearchInputMobile from "../../SearchInput/SerachInputMobile";
 import {
   CollapseItem,
   CollapseRoot,
@@ -17,6 +15,7 @@ import {
   NavBarRoot,
   SBadge,
 } from "./styles";
+import SearchInput from "../../SearchInput";
 
 const Mobile: React.FC = () => {
   const [showSearch, setShowSerach] = useState(false);
@@ -59,7 +58,13 @@ const Mobile: React.FC = () => {
         </CollapseRoot>
       </NavBarRoot>
       <div>
-        <SearchInputMobile showSearch={showSearch} />
+        <SearchInput
+          showSearch={showSearch}
+          animateActions={{
+            open: { height: 60, y: 0 },
+            exit: { height: 0, y: -100 },
+          }}
+        />
       </div>
     </>
   );

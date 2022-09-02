@@ -4,11 +4,6 @@ export interface IFilterParams {
   name?: string;
 }
 
-export enum ThunkStatus {
-  filter = "filter",
-  all = "all",
-}
-
 export interface IProducts {
   id: number;
   image: string;
