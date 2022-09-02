@@ -6,7 +6,8 @@ import { IFilterParams, IProducts, IResponse } from "../../interface/products";
 
 import productsThunk, { ThunkStatus } from "../../store/modules/products/thunk";
 import CardProduct from "../CardProduct";
-import { ListProducts } from "./styles";
+import LoadProducts from "../LoadProducts";
+import { Container, ListProducts } from "./styles";
 
 const Showcase: React.FC = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -37,8 +38,8 @@ const Showcase: React.FC = () => {
   };
 
   return (
-    <div>
-      {products.items ? (
+    <Container>
+      {products.items && products.items.length ? (
         <>
           <span>{products.totalItems} produtos encontrados</span>
           {
@@ -57,9 +58,9 @@ const Showcase: React.FC = () => {
           />
         </>
       ) : (
-        <h1>Nenhum produto encontrado</h1>
+        <LoadProducts />
       )}
-    </div>
+    </Container>
   );
 };
 

@@ -17,5 +17,6 @@ declare module "styled-components" {
       color: string;
     };
     star: string;
+    success: string;
   }
 }

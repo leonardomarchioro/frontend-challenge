@@ -1,34 +1,60 @@
-import { Button, Card, Image, Spacer } from "@nextui-org/react";
+import { Button, Spacer } from "@nextui-org/react";
 
 import React from "react";
 import { IProducts } from "../../interface/products";
-import { CardRoot } from "./styles";
+import {
+  ButtonRoot,
+  CardBody,
+  CardRoot,
+  Container,
+  DiscointRoot,
+  NoPartherSpan,
+  PartnerRoot,
+  SImage,
+  Title,
+} from "./styles";
 
 const CardProduct: React.FC<{ product: IProducts }> = ({ product }) => {
+  const replacePrice = (price: number) =>
+    price.toFixed(2).toString().replace(".", ",");
+
   return (
-    <div>
+    <Container>
       <CardRoot isHoverable>
-        <Card.Body>
-          <Image src={product.image} alt={product.name} />
-          <h6>{product.name}</h6>
-          <div>
-            <span>{product.price}</span>
-            <span>{product.discount}% OFF</span>
-          </div>
-          <div>
+        <CardBody>
+          <SImage src={product.image} alt={product.name} />
+
+          <Title>{product.name}</Title>
+          <DiscointRoot>
+            <span>R${replacePrice(product.price)}</span>
+            <h6>{product.discount}% OFF</h6>
+          </DiscointRoot>
+          <PartnerRoot>
             <span>SÓCIO WINE</span>
-            <span>{product.priceMember}</span>
-          </div>
-          <div>
-            <span>NÃO SÓCIO</span>
-            <span>{product.priceNonMember}</span>
-          </div>
-        </Card.Body>
+            <PartherPrice price={product.priceMember} />
+          </PartnerRoot>
+          <NoPartherSpan>
+            NÃO SÓCIO R${replacePrice(product.priceNonMember)}
+          </NoPartherSpan>
+        </CardBody>
       </CardRoot>
       <Spacer />
-      <Button>Adicionar</Button>
-    </div>
+      <ButtonRoot>
+        <Button>Adicionar</Button>
+      </ButtonRoot>
+    </Container>
   );
 };
 
 export default CardProduct;
+
+const PartherPrice: React.FC<{ price: number }> = ({ price }) => {
+  const [int, dec] = price.toFixed(2).toString().split(".");
+
+  return (
+    <h3>
+      R$<span>{int},</span>
+      {dec}
+    </h3>
+  );
+};

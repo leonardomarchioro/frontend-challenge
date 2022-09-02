@@ -16,4 +16,5 @@ export const lightTheme: DefaultTheme = {
     color: "#FFFFFF",
   },
   star: "#F9B950",
+  success: "#7EBC43",
 };
