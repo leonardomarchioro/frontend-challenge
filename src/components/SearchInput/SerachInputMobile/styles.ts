@@ -8,6 +8,7 @@ export const FormMotion = styled(motion.form)`
   align-items: center;
   justify-content: flex-end;
   padding: 2rem;
+  z-index: 20;
 
   > div {
     width: 15rem;

@@ -36,5 +36,3 @@ const productsThunk =
     }
   };
 export default productsThunk;
-
-export type IThunkProducts = ReturnType<typeof productsThunk>;
