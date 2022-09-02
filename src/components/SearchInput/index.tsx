@@ -2,8 +2,7 @@ import { Input } from "@nextui-org/react";
 import React, { FormEvent, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { FormMotion } from "./styles";
-import { useDispatch, useSelector } from "react-redux";
-import { IFilterParams } from "../../interface/products";
+import { useDispatch } from "react-redux";
 import { setName } from "../../store/modules/filters/actions";
 
 interface IAnimate {

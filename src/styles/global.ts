@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         outline: 0;
         font-family: 'Lato', sans-serif;
-        transition: all 0.5s ease;
+        transition: all linear ease 0.5s;
     }
 
     #_next{

@@ -13,13 +13,23 @@ export const FormMotion = styled(motion.form)`
     align-items: center;
     justify-content: flex-end;
     padding: 2rem;
-    z-index: 20;
+    z-index: 200;
 
     > div {
       width: 15rem;
       padding: 1rem;
       background-color: ${({ theme }) => theme.background.secondary};
       border: 1px solid rgb(0, 0, 0, 0.15);
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    width: 100%;
+    justify-content: center;
+    z-index: 200;
+
+    > div {
+      width: 90%;
     }
   }
 `;

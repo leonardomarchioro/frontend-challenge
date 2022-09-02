@@ -15,7 +15,7 @@ const productsThunk =
     switch (status) {
       case ThunkStatus.filter:
         const prodsFilter = await wineApi.get(
-          `?page=${filterData.page}&limit=10${
+          `?page=${filterData.page}&limit=9${
             filterData.price ? `&filter=${filterData.price}` : ``
           }${
             filterData.name && filterData.name !== ""
@@ -28,7 +28,7 @@ const productsThunk =
 
       default:
         const prodsDefault = await wineApi.get(
-          `?page=${filterData.page}&limit=10`
+          `?page=${filterData.page}&limit=9`
         );
 
         return dispatch(allProductsGet(prodsDefault.data));
