@@ -22,7 +22,23 @@ export const CardBody = styled(Card.Body)`
 `;
 
 export const SImage = styled(Image)`
+  width: 100%;
+`;
+
+export const Figure = styled.figure`
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const SPath = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1rem;
+  position: relative;
+  top: -30px;
 `;
 
 export const ButtonRoot = styled.div`

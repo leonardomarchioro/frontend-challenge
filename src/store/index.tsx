@@ -13,7 +13,7 @@ import filtersReducer from "./modules/filters/reducer";
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["products"],
+  blacklist: ["products", "filters"],
 };
 
 const rootReducers = combineReducers({

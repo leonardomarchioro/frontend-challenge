@@ -12,6 +12,10 @@ export const ListProducts = styled.ul`
 export const Container = styled.div`
   max-width: 1025px;
   width: 70%;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const TotalProductsFind = styled.span`

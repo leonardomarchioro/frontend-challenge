@@ -3,11 +3,10 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IFilterParams, IResponse } from "../../interface/products";
 import productsThunk, { ThunkStatus } from "../../store/modules/products/thunk";
+import LoadProducts from "../LoadProducts";
 import PriceFilter from "../PriceFilter";
 import Showcase from "../Showcase";
-import { Container } from "./styles";
-
-// import { Container } from './styles';
+import { Container, PaginationContainer } from "./styles";
 
 const Main: React.FC = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -42,15 +41,26 @@ const Main: React.FC = () => {
     <>
       <Container>
         <PriceFilter />
-        <Showcase products={products} />
+        {products.items && products.items.length ? (
+          <>
+            <Showcase products={products} />
+          </>
+        ) : (
+          <LoadProducts />
+        )}
       </Container>
-      <Pagination
-        color="secondary"
-        onChange={handlePage}
-        total={products.totalPages}
-        initialPage={1}
-        page={pageNumber}
-      />
+      {products.items && products.items.length ? (
+        <PaginationContainer>
+          <Pagination
+            onChange={handlePage}
+            total={products.totalPages}
+            initialPage={1}
+            page={pageNumber}
+          />
+        </PaginationContainer>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

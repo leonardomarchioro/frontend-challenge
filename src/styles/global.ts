@@ -15,13 +15,13 @@ export const GlobalStyle = createGlobalStyle`
     #_next{
         width: 100vw;
         height: 100vh;
-        
+        background-color: ${({ theme }) => theme.background.primary};
     }
 
     body {
         width: 100vw;
         height: 100vh;
-    
+        background-color: ${({ theme }) => theme.background.primary};
     }
 
     button{

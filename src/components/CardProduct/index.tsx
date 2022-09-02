@@ -1,5 +1,7 @@
 import { Button, Spacer } from "@nextui-org/react";
 
+import Path from "../../assets/path.svg";
+
 import React from "react";
 import { IProducts } from "../../interface/products";
 import {
@@ -11,8 +13,10 @@ import {
   NoPartherSpan,
   PartnerRoot,
   SImage,
+  SPath,
   Title,
 } from "./styles";
+import Image from "next/image";
 
 const CardProduct: React.FC<{ product: IProducts }> = ({ product }) => {
   const replacePrice = (price: number) =>
@@ -23,6 +27,9 @@ const CardProduct: React.FC<{ product: IProducts }> = ({ product }) => {
       <CardRoot isHoverable>
         <CardBody>
           <SImage src={product.image} alt={product.name} />
+          <SPath>
+            <Image src={Path} alt="Path" />
+          </SPath>
 
           <Title>{product.name}</Title>
           <DiscointRoot>

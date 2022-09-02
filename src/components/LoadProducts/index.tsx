@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import EmptyShowcase from "../EmptyShowcase";
 
 // import { Container } from './styles';
 
@@ -9,11 +10,7 @@ const LoadProducts: React.FC = () => {
     setTimeout(() => setLoading(false), 1500);
   }, []);
 
-  return (
-    <div>
-      {loading ? <h1>Carregando...</h1> : <h1>Nenhum produto encontrado</h1>}
-    </div>
-  );
+  return loading ? <h1>Carregando...</h1> : <EmptyShowcase />;
 };
 
 export default LoadProducts;

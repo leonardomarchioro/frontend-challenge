@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  height: 60px;
-
+  height: 80px;
+  background-color: ${({ theme }) => theme.background.secondary};
   .Desktop {
     display: none;
   }
