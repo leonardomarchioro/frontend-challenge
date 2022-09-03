@@ -2,7 +2,7 @@ import { Button, Spacer } from "@nextui-org/react";
 
 import Path from "../../assets/path.svg";
 
-import React from "react";
+import React, { useCallback } from "react";
 import { IProducts } from "../../interface/products";
 import {
   ButtonRoot,
@@ -17,10 +17,17 @@ import {
   Title,
 } from "./styles";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const CardProduct: React.FC<{ product: IProducts }> = ({ product }) => {
+  const router = useRouter();
+
   const replacePrice = (price: number) =>
     price.toFixed(2).toString().replace(".", ",");
+
+  const handleProductPage = () => {
+    router.push(`/product?id=${product.id}`);
+  };
 
   return (
     <Container>
@@ -47,7 +54,7 @@ const CardProduct: React.FC<{ product: IProducts }> = ({ product }) => {
       </CardRoot>
       <Spacer />
       <ButtonRoot>
-        <Button>Adicionar</Button>
+        <Button onClick={handleProductPage}>Adicionar</Button>
       </ButtonRoot>
     </Container>
   );
