@@ -5,6 +5,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Flag = styled(Image)`
@@ -23,4 +27,16 @@ export const Span = styled.span`
 export const StarContainer = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const Infos = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const Rating = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
