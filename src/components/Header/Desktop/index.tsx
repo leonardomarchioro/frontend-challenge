@@ -1,4 +1,4 @@
-import { Badge, Input, Navbar } from "@nextui-org/react";
+import { Navbar } from "@nextui-org/react";
 
 import React, { useState } from "react";
 
@@ -17,7 +17,7 @@ import {
   SBadge,
 } from "./styles";
 
-const Desktop: React.FC = () => {
+const Desktop: React.FC<{ quantaty: number }> = ({ quantaty }) => {
   const [showSearch, setShowSerach] = useState(false);
 
   return (
@@ -63,7 +63,7 @@ const Desktop: React.FC = () => {
         <NavbarItem>
           <>
             <Image width={40} height={40} src={Cart} alt="Carrinho" />
-            <SBadge color="success">0</SBadge>
+            <SBadge color="success">{quantaty}</SBadge>
           </>
         </NavbarItem>
       </Navbar.Content>

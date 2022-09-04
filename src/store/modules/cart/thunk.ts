@@ -24,12 +24,21 @@ const cartThunk =
 
         if (productOnCart) {
           productOnCart.quantaty!++;
-          return dispatch(addItem(cart));
+          const quantatyCart = [...cart].reduce(
+            (acc, cur) => acc + cur.quantaty!,
+            0
+          );
+
+          return dispatch(addItem({ quantaty: quantatyCart, cart }));
         }
 
-        const newProduct = { ...product, quantaty: 1 };
+        const newCart = [...cart, { ...product, quantaty: 1 }];
+        const quantatyCartAdd = newCart.reduce(
+          (acc, cur) => acc + cur.quantaty!,
+          0
+        );
 
-        return dispatch(addItem([...cart, newProduct]));
+        return dispatch(addItem({ quantaty: quantatyCartAdd, cart: newCart }));
 
       case CartThunkStatus.REMOVE:
         const removeProduct = cart.find((ele) => ele.id === product.id);
@@ -38,14 +47,29 @@ const cartThunk =
           if (removeProduct.quantaty! > 1) {
             removeProduct.quantaty!--;
 
-            return dispatch(removeItem(cart));
+            const quantatyCart = [...cart].reduce(
+              (acc, cur) => acc + cur.quantaty!,
+              0
+            );
+
+            return dispatch(removeItem({ quantaty: quantatyCart, cart }));
           }
           const newCart = cart.filter((ele) => ele.id !== product.id);
+          const quantatyCart = newCart.reduce(
+            (acc, cur) => acc + cur.quantaty!,
+            0
+          );
 
-          return dispatch(removeItem(newCart));
+          return dispatch(
+            removeItem({ quantaty: quantatyCart, cart: newCart })
+          );
         }
+        const quantatyCart = [...cart].reduce(
+          (acc, cur) => acc + cur.quantaty!,
+          0
+        );
 
-        return dispatch(removeItem(cart));
+        return dispatch(removeItem({ quantaty: quantatyCart, cart }));
 
       case CartThunkStatus.CLEAR:
         return dispatch(clearCart());

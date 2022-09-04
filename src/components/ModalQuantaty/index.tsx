@@ -16,24 +16,28 @@ interface IProps {
 }
 
 const ModalQuantaty: React.FC<IProps> = ({ open, close, product }) => {
-  const cart = useSelector((state: { cart: ICart[] }) => state.cart);
+  const { cart } = useSelector(
+    (state: { cart: { quantaty: number; cart: ICart[] } }) => state.cart
+  );
 
-  const [quantaty, setQuantaty] = useState(0);
+  const [quantatyProd, setQuantatyProd] = useState(0);
 
   useEffect(() => {
     const productOnCart = cart.find((ele) => ele.id === product.id);
-    productOnCart && setQuantaty(productOnCart?.quantaty!);
+    productOnCart && setQuantatyProd(productOnCart?.quantaty!);
   }, [cart, product]);
 
   const dispatch = useDispatch();
 
   const upQuantaty = () => {
     dispatch(cartThunk(CartThunkStatus.ADD, cart, product) as any);
-    setQuantaty(quantaty + 1);
+    setQuantatyProd(quantatyProd + 1);
   };
   const downQuantaty = () => {
     dispatch(cartThunk(CartThunkStatus.REMOVE, cart, product) as any);
-    quantaty === 0 ? setQuantaty(quantaty) : setQuantaty(quantaty - 1);
+    quantatyProd === 0
+      ? setQuantatyProd(quantatyProd)
+      : setQuantatyProd(quantatyProd - 1);
   };
 
   return (
@@ -43,11 +47,11 @@ const ModalQuantaty: React.FC<IProps> = ({ open, close, product }) => {
       open={open}
       onClose={close}
     >
-      <ModalHeader>Quantidade: {quantaty}</ModalHeader>
+      <ModalHeader>Quantidade: {quantatyProd}</ModalHeader>
       <Modal.Body>
         <ButtonContainer>
           <button
-            className={quantaty > 0 ? "" : "disable"}
+            className={quantatyProd > 0 ? "" : "disable"}
             onClick={downQuantaty}
           >
             -

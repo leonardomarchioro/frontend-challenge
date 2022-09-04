@@ -2,12 +2,12 @@ import { IProducts } from "../../../interface/products";
 import { ADD_ITEM, CLEAR_CART, FINISH_CART, REMOVE_ITEM } from "./actionTypes";
 import { ICart } from "./thunk";
 
-export const addItem = (cart: ICart[]) => ({
+export const addItem = (cart: { quantaty: number; cart: ICart[] }) => ({
   type: ADD_ITEM,
   cart,
 });
 
-export const removeItem = (cart: ICart[]) => ({
+export const removeItem = (cart: { quantaty: number; cart: ICart[] }) => ({
   type: REMOVE_ITEM,
   cart,
 });

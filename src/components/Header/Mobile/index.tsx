@@ -17,7 +17,7 @@ import {
 } from "./styles";
 import SearchInput from "../../SearchInput";
 
-const Mobile: React.FC = () => {
+const Mobile: React.FC<{ quantaty: number }> = ({ quantaty }) => {
   const [showSearch, setShowSerach] = useState(false);
 
   return (
@@ -37,7 +37,7 @@ const Mobile: React.FC = () => {
               />
               <NavbarCart>
                 <Image width={40} height={40} src={Cart} alt="Carrinho" />
-                <SBadge color="success">0</SBadge>
+                <SBadge color="success">{quantaty}</SBadge>
               </NavbarCart>
             </>
           </NavbarItem>
