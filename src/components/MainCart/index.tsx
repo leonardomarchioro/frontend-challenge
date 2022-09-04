@@ -2,10 +2,7 @@ import { Button } from "@nextui-org/react";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { clearCart, finishCart } from "../../store/modules/cart/action";
-import cartThunk, {
-  CartThunkStatus,
-  ICart,
-} from "../../store/modules/cart/thunk";
+import { ICart } from "../../store/modules/cart/thunk";
 import ProductCartCard from "../ProductCartCard";
 import {
   Container,
@@ -15,6 +12,7 @@ import {
   ListCards,
   Title,
 } from "./styles";
+import { toast } from "react-toastify";
 
 const MainCart: React.FC<{
   cart: { quantaty: number; cart: ICart[] | [] };
@@ -28,10 +26,12 @@ const MainCart: React.FC<{
 
   const finishOrder = () => {
     dispatch(finishCart() as any);
+    toast.success("Compra finalizada");
   };
 
   const clearOrder = () => {
     dispatch(clearCart() as any);
+    toast.success("Carrinho limpo");
   };
 
   return (

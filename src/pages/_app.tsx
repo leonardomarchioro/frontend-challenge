@@ -6,6 +6,10 @@ import { persistor, store } from "../store";
 import { GlobalStyle } from "../styles/global";
 import Theme from "../styles/Theme/themeProvider";
 
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
@@ -13,6 +17,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Theme>
           <GlobalStyle />
           <NextUIProvider>
+            <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
             <Component {...pageProps} />
           </NextUIProvider>
         </Theme>
