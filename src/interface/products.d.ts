@@ -5,22 +5,22 @@ export interface IFilterParams {
 }
 
 export interface IProducts {
+  avaliations: number;
+  classification: string;
+  country: string;
+  discount: number;
+  flag: string;
   id: number;
   image: string;
   name: string;
   price: number;
-  discount: number;
   priceMember: number;
   priceNonMember: number;
-  type: string;
-  classification: string;
-  size: string;
   rating: number;
-  avaliations: number;
-  country: string;
   region: string;
-  flag: string;
   sommelierComment: string;
+  type: string;
+  volume: string;
 }
 
 export interface IResponse {

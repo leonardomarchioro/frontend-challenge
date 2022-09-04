@@ -8,11 +8,11 @@ import { IResponse } from "../interface/products";
 
 import Header from "../components/Header";
 
-import { Body } from "../styles/Pages/Product/styles";
-import { Image, Link } from "@nextui-org/react";
+import { Body, SLink } from "../styles/Pages/Product/styles";
 
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import MainProduct from "../components/MainProduct";
+import { Link } from "@nextui-org/react";
 
 const Product: React.FC = () => {
   const router = useRouter();
@@ -31,12 +31,14 @@ const Product: React.FC = () => {
       </Head>
       <Header />
       <Body>
-        <Link href="/">
-          <>
-            <MdOutlineArrowBackIosNew size={30} />
-            Voltar
-          </>
-        </Link>
+        <SLink>
+          <Link href="/">
+            <>
+              <MdOutlineArrowBackIosNew size={30} />
+              Voltar
+            </>
+          </Link>
+        </SLink>
         {product ? (
           <MainProduct product={product} />
         ) : (
