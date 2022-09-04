@@ -27,7 +27,7 @@ const MainProductMobile: React.FC<{ product: IProducts }> = ({ product }) => {
 
   return (
     <>
-      <ModalQuantaty open={show} close={handleMenu} />
+      <ModalQuantaty open={show} close={handleMenu} product={product} />
       <Container className="Mobile">
         <ContainerInfos>
           <ArrowInfos country={product.country} region={product.region} />

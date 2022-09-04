@@ -1,4 +1,4 @@
-import { IProducts, IResponse } from "../../../interface/products";
+import { IResponse } from "../../../interface/products";
 import { ALL_PRODUCTS, FILTER_PRODUCTS } from "./actionTypes";
 
 export const allProductsGet = (products: IResponse) => ({
