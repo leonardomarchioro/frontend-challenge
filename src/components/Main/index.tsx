@@ -56,6 +56,7 @@ const Main: React.FC = () => {
             total={products.totalPages}
             initialPage={1}
             page={pageNumber}
+            size="xs"
           />
         </PaginationContainer>
       ) : (

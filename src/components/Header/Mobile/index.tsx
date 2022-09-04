@@ -16,9 +16,12 @@ import {
   SBadge,
 } from "./styles";
 import SearchInput from "../../SearchInput";
+import { useRouter } from "next/router";
 
 const Mobile: React.FC<{ quantaty: number }> = ({ quantaty }) => {
   const [showSearch, setShowSerach] = useState(false);
+
+  const router = useRouter();
 
   return (
     <>
@@ -35,7 +38,7 @@ const Mobile: React.FC<{ quantaty: number }> = ({ quantaty }) => {
                 size={50}
                 onClick={() => setShowSerach(!showSearch)}
               />
-              <NavbarCart>
+              <NavbarCart onClick={() => router.push("/cart")}>
                 <Image width={40} height={40} src={Cart} alt="Carrinho" />
                 <SBadge color="success">{quantaty}</SBadge>
               </NavbarCart>

@@ -71,11 +71,8 @@ const cartThunk =
 
         return dispatch(removeItem({ quantaty: quantatyCart, cart }));
 
-      case CartThunkStatus.CLEAR:
-        return dispatch(clearCart());
-
-      case CartThunkStatus.FINISH:
-        return dispatch(finishCart());
+      default:
+        return;
     }
   };
 

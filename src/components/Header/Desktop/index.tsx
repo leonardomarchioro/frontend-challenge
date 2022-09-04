@@ -16,10 +16,11 @@ import {
   NavSearch,
   SBadge,
 } from "./styles";
+import { useRouter } from "next/router";
 
 const Desktop: React.FC<{ quantaty: number }> = ({ quantaty }) => {
   const [showSearch, setShowSerach] = useState(false);
-
+  const router = useRouter();
   return (
     <Navbar variant="sticky" className="Desktop">
       <Navbar.Brand>
@@ -60,7 +61,7 @@ const Desktop: React.FC<{ quantaty: number }> = ({ quantaty }) => {
         <NavbarItem>
           <CgProfile size={40} />
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem onClick={() => router.push("/cart")}>
           <>
             <Image width={40} height={40} src={Cart} alt="Carrinho" />
             <SBadge color="success">{quantaty}</SBadge>
