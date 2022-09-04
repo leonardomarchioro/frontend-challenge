@@ -8,7 +8,7 @@ import { IResponse } from "../interface/products";
 
 import Header from "../components/Header";
 
-import { Body, SLink } from "../styles/Pages/Product/styles";
+import { Body, SLink, Title } from "../styles/Pages/Product/styles";
 
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import MainProduct from "../components/MainProduct";
@@ -42,7 +42,7 @@ const Product: React.FC = () => {
         {product ? (
           <MainProduct product={product} />
         ) : (
-          <h1>Produto não encontrado</h1>
+          <Title>Produto não encontrado</Title>
         )}
       </Body>
     </>

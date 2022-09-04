@@ -1,4 +1,3 @@
-import { Link } from "@nextui-org/react";
 import styled from "styled-components";
 
 export const Body = styled.div`
@@ -24,4 +23,11 @@ export const SLink = styled.div`
       color: ${({ theme }) => theme.text.span};
     }
   }
+`;
+
+export const Title = styled.h1`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  color: ${({ theme }) => theme.text.span};
 `;
